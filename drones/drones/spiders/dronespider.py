@@ -10,10 +10,11 @@ class DronespiderSpider(scrapy.Spider):
         products = response.css('div.f-grid.prod-row')
         for product in products:
             item = {
-                'product_name': product.css('img::attr(alt)').get(),
-                'price': product.css('p.price.larger::text').get().replace('£',''),
-                'url': product.css('a::attr(href)').get(),
-
+            'product_name' : product.css('img::attr(alt)').get(),
+            'price' : product.css('p.price.larger::text').get().replace('£', ''),
+            'url' : product.css('a::attr(href)').get()
             }
 
             yield item
+        pass
+
